@@ -1,0 +1,15 @@
+[package]
+name = "super-hot-keys"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[profile.release]
+opt-level = 3
+lto = "fat"
+
+[dependencies]
+ctrlc = "3.4.0"
+image = "0.24.7"
+interprocess = "1.2.1"
+winit = "0.28.6"
