@@ -1,5 +1,8 @@
 use crate::hotkeys::{ShortCut, ShortCutManager};
 use interprocess::local_socket::LocalSocketListener;
+use std::env;
+
+const SOCKET_NAME: &'static str = ".shk";
 
 use winit::{
     event::{ElementState, Event, ModifiersState, VirtualKeyCode, WindowEvent},
@@ -39,7 +42,7 @@ impl MainApp {
             },
             state: State::default(),
             event_loop,
-            socket: LocalSocketListener::bind(".shk")?,
+            socket: LocalSocketListener::bind(env::temp_dir().join(SOCKET_NAME))?,
         })
     }
 
@@ -113,7 +116,7 @@ impl MainApp {
     }
 
     fn clean() {
-        let _ = std::fs::remove_file(".shk");
+        let _ = std::fs::remove_file(env::temp_dir().join(SOCKET_NAME));
         exit(0);
     }
 }
