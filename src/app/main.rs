@@ -1,8 +1,7 @@
+use crate::config::SOCKET_NAME;
 use crate::hotkeys::{ShortCut, ShortCutManager};
 use interprocess::local_socket::LocalSocketListener;
 use std::env;
-
-const SOCKET_NAME: &'static str = ".shk";
 
 use winit::{
     event::{ElementState, Event, ModifiersState, VirtualKeyCode, WindowEvent},

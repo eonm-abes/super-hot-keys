@@ -1,6 +1,8 @@
 use crate::hotkeys::ShortCutOrGroup;
 use crate::ShortCut;
 
+pub const SOCKET_NAME: &'static str = ".shk";
+
 use std::collections::HashMap;
 
 use crate::{cmd, group};
